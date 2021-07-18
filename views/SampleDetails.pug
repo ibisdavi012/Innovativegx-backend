@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        link(rel='stylesheet', href='/css/SampleDetails.css')
+    body 
+        div.medication
+            p.medication__theraputicArea #{TheraputicArea}
+            
+            p.medication__drug
+                span.drug__generic #{Generic}
+                span.drug__trade (#{Trade})
+                        
+            div.genInfo
+                div.genInfo__title.geneInfo__gene Gene
+                div.genInfo__title.geneInfo__genotype Genotype
+                div.genInfo__title.geneInfo__phenotype Phenotype/Patient Impact
+                
+                each info in GeneInfo
+                    div.geneInfo__gene #{info.Gene}
+                    div.geneInfo__genotype #{info.Genotype}
+                    div.geneInfo__phenotype #{info.Phenotype}
+            
+                div.medication__action #{Action}
+                div.medication__groupPhenotype #{GroupPhenotype}
+            div.medication__recommendation #{Recommendation}
+        
