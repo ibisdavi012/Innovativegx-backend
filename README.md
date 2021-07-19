@@ -7,7 +7,7 @@ Live version available at Heroku.
 
 The URL format is: ./samples/[sampleNumber]
 
-### Get JSON data from an API
+### Serves JSON data that can be consumed.
 [https://innovativegx.herokuapp.com/samples/12345/json](https://innovativegx.herokuapp.com/samples/12345/json)
 
 The URL format is: ./samples/[sampleNumber]/json
