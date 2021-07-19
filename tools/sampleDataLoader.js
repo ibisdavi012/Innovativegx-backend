@@ -20,8 +20,9 @@ module.exports.load = () => {
 				try {
 					jsonContent = JSON.parse(content);
 
+					// Delete the item if already exists to avoid primary key duplication error
 					await Sample.findOne(
-						{ SampleNumber: 12345 },
+						{ SampleNumber: jsonContent.SampleNumber },
 						async (err, sample) => {
 							if (sample != null) await sample.delete();
 						},
