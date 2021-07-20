@@ -6,27 +6,49 @@ html
 		div
 			each medication in  currentMedications
 				div.medication
-					span.medication__TheraputicArea #{medication.TheraputicArea}
-					div.container
-						div.medication__drugs.borders-dark.caution-light
-							p.bold
-								script. 	
-									document.write('#{medication.Drugs[0].Generic.join(', ')}');
-							p
-							script. 							
-									document.write('(#{medication.Drugs[0].Trade.join(', ')})');
-						div.container__genes.borders-dark
-							div.bold.container__genes-title Genotype
-							div.bold.container__genes-title Phenotype
-							div.bold.container__genes-title.caution-light Phenotypes/Patient Impact
-							each geneInfo in medication.GeneInfo
-								div.bold #{geneInfo.Gene}
-								div.bold #{geneInfo.Genotype}
-								div.caution-light #{geneInfo.Phenotype}
-							div.container__genes_action.caution-dark
-								script. 							
-										document.write('#{medication.Action.join(', ')}');
-							div.caution-dark #{medication.GroupPhenotype}
-						div.container__recommendation.borders-dark 
-							p #{medication.Recommendation}
-				
+					- var x = medication.Action.indexOf('CAUTION') > -1
+					if x
+						span.medication__TheraputicArea #{medication.TheraputicArea}
+						div.container
+							div.medication__drugs.borders-dark.caution-light
+								p.bold #{medication.Drugs[0].Generic.join(', ')}									
+								p #{medication.Drugs[0].Trade.join(', ')})');
+							div.container__genes.borders-dark
+								div.bold.container__genes-title Genotype
+								div.bold.container__genes-title Phenotype
+								div.bold.container__genes-title.caution-light Phenotypes/Patient Impact
+								each geneInfo in medication.GeneInfo
+									div.bold #{geneInfo.Gene}
+									div.bold #{geneInfo.Genotype}
+									div.caution-light #{geneInfo.Phenotype}
+								div.container__genes_action.caution-dark
+									script.
+											document.write('#{medication.Action.join(', ')}');
+								div.caution-dark #{medication.GroupPhenotype}
+							div.container__recommendation.borders-dark
+								p #{medication.Recommendation}
+					else
+						span.medication__TheraputicArea #{medication.TheraputicArea}
+						div.container
+							div.medication__drugs.borders-dark.go-light
+								p.bold
+									script.
+										document.write('#{medication.Drugs[0].Generic.join(', ')}');
+								p
+								script.
+										document.write('(#{medication.Drugs[0].Trade.join(', ')})');
+							div.container__genes.borders-dark
+								div.bold.container__genes-title Genotype
+								div.bold.container__genes-title Phenotype
+								div.bold.container__genes-title.go-light Phenotypes/Patient Impact
+								each geneInfo in medication.GeneInfo
+									div.bold #{geneInfo.Gene}
+									div.bold #{geneInfo.Genotype}
+									div.go-light #{geneInfo.Phenotype}
+								div.container__genes_action.go-dark
+									script.
+											document.write('#{medication.Action.join(', ')}');
+								div.go-dark #{medication.GroupPhenotype}
+							div.container__recommendation.borders-dark
+								p #{medication.Recommendation}	
+					
