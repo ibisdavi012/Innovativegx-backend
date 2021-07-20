@@ -12,7 +12,7 @@ html
 						div.container
 							div.medication__drugs.borders-dark.caution-light
 								p.bold #{medication.Drugs[0].Generic.join(', ')}									
-								p #{medication.Drugs[0].Trade.join(', ')})');
+								p (#{medication.Drugs[0].Trade.join(', ')})
 							div.container__genes.borders-dark
 								div.bold.container__genes-title Genotype
 								div.bold.container__genes-title Phenotype
@@ -22,8 +22,9 @@ html
 									div.bold #{geneInfo.Genotype}
 									div.caution-light #{geneInfo.Phenotype}
 								div.container__genes_action.caution-dark
-								    #{medication.Action.join(', ')}
-								div.caution-dark #{medication.GroupPhenotype}
+									p #{medication.Action.join(', ')}
+								div.caution-dark 
+									p #{medication.GroupPhenotype}
 							div.container__recommendation.borders-dark
 								p #{medication.Recommendation}
 					else
@@ -31,7 +32,7 @@ html
 						div.container
 							div.medication__drugs.borders-dark.go-light
 								p.bold #{medication.Drugs[0].Generic.join(', ')}									
-								p #{medication.Drugs[0].Trade.join(', ')})');
+								p (#{medication.Drugs[0].Trade.join(', ')})
 							div.container__genes.borders-dark
 								div.bold.container__genes-title Genotype
 								div.bold.container__genes-title Phenotype
@@ -41,9 +42,8 @@ html
 									div.bold #{geneInfo.Genotype}
 									div.go-light #{geneInfo.Phenotype}
 								div.container__genes_action.go-dark
-    									#{medication.Action.join(', ')}
-								div.go-dark #{medication.GroupPhenotype}
+									p #{medication.Action.join(', ')}
+								div.go-dark 
+									p #{medication.GroupPhenotype}
 							div.container__recommendation.borders-dark
 								p #{medication.Recommendation}
-					
-					
